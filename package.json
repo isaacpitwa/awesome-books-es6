@@ -1,0 +1,31 @@
+{
+  "name": "awesome-books-es6",
+  "version": "1.0.0",
+  "description": "Awesome books project using Js Moduls (es6)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node -r esm index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isaacpitwa/awesome-books-es6.git"
+  },
+  "keywords": [
+    "es6",
+    "awesome-books",
+    "microverse",
+    "JS",
+    "isaacpitwa",
+    "js-modules"
+  ],
+  "author": "Isaac Pitwa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/isaacpitwa/awesome-books-es6/issues"
+  },
+  "homepage": "https://github.com/isaacpitwa/awesome-books-es6#readme",
+  "dependencies": {
+    "esm": "^3.2.25"
+  }
+}
