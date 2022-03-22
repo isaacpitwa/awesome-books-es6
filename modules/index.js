@@ -1,1 +1,1 @@
-export {default as FunctionsModule} from './functions'
+export {Methods} from './functions.js'
