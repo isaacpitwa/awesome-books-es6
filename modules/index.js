@@ -1,1 +1,0 @@
-export {Methods} from './functions.js'
