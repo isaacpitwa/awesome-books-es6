@@ -1,4 +1,4 @@
-export class Methods {
+export default class Methods {
   constructor(title, author, id) {
     this.title = title;
     this.author = author;
