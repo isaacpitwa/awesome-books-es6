@@ -1,43 +1,9 @@
 import { Methods  } from "./modules/functions.js";
 import {listActive,contactActive,formActive} from './modules/navigation.js'
+import {displayBooks,saveData} from './modules/books.js'
 
 const methods = new Methods();
 methods.books = [];
-
-const saveData = () => {
-  localStorage.setItem('myBooks', JSON.stringify(methods.books));
-};
-
-const displayBooks = () => {
-  const booksList = document.querySelector('.books');
-  booksList.innerHTML = '';
-  for (let i = 0; i < methods.books.length; i += 1) {
-    const book = methods.books[i];
-    const bookElement = document.createElement('div');
-    bookElement.classList.add('book');
-    if ((i + 1) % 2 !== 0) {
-      bookElement.classList.add('odd');
-    }
-
-    const h2 = document.createElement('h2');
-    h2.classList.add('title');
-    h2.textContent = `"${book.title}"  by ${book.author}`;
-
-    const removeBtn = document.createElement('button');
-    removeBtn.classList.add(`remove-${book.id}`);
-    removeBtn.textContent = 'Remove';
-    removeBtn.addEventListener('click', () => {
-      methods.removeBook(book.id);
-      displayBooks();
-    });
-
-    bookElement.appendChild(h2);
-    bookElement.appendChild(removeBtn);
-
-    booksList.appendChild(bookElement);
-  }
-  saveData();
-};
 
 const getData = () => {
   const formData = JSON.parse(localStorage.getItem('myBooks'));
@@ -50,7 +16,7 @@ const getData = () => {
 
 window.onbeforeunload = () => {
   getData();
-  displayBooks();
+  displayBooks(methods);
 };
 
 /* form functions */
@@ -66,8 +32,8 @@ addBtn.addEventListener('click', (e) => {
     const bookAuthor = author.value;
     const bookId = Date.now();
     methods.addBook(bookTitle, bookAuthor, bookId);
-    displayBooks();
-    saveData();
+    displayBooks(methods);
+    saveData(methods);
     alert(`${title.value} and ${author.value} have been added to the list!!!`);
     title.value = null;
     author.value = null;
@@ -77,18 +43,12 @@ addBtn.addEventListener('click', (e) => {
 });
 
 getData();
-displayBooks();
+displayBooks(methods);
 
 // Referrence to navbar
 const list = document.querySelector('.list');
 const add = document.querySelector('.add');
 const contact = document.querySelector('.contact');
-const wholeForm = document.querySelector('#form-container');
-const books = document.querySelector('#books-container');
-const body = document.querySelector('body');
-const footer = document.querySelector('footer');
-const contactContainer = document.querySelector('.contact-section');
-
 
 list.addEventListener('click', listActive);
 add.addEventListener('click', formActive);
