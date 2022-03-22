@@ -1,6 +1,6 @@
 import { Methods  } from "./modules/functions.js";
 import {listActive,contactActive,formActive} from './modules/navigation.js'
-import {displayBooks,saveData} from './modules/books.js'
+import {displayBooks,saveData,addBook} from './modules/books.js'
 
 const methods = new Methods();
 methods.books = [];
@@ -20,27 +20,9 @@ window.onbeforeunload = () => {
 };
 
 /* form functions */
-const form = document.querySelector('form');
-const author = form.querySelector('#author');
-const title = form.querySelector('#title');
 
 const addBtn = document.querySelector('#add-btn');
-addBtn.addEventListener('click', (e) => {
-  if (author.value && title.value) {
-    e.preventDefault();
-    const bookTitle = title.value;
-    const bookAuthor = author.value;
-    const bookId = Date.now();
-    methods.addBook(bookTitle, bookAuthor, bookId);
-    displayBooks(methods);
-    saveData(methods);
-    alert(`${title.value} and ${author.value} have been added to the list!!!`);
-    title.value = null;
-    author.value = null;
-  } else {
-    e.preventDefault();
-  }
-});
+addBtn.addEventListener('click', (e)=>{ e.preventDefault();addBook(methods)});
 
 getData();
 displayBooks(methods);

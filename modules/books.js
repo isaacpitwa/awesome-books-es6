@@ -1,8 +1,24 @@
+
+ const addBook = (methods)=>{
+    const form = document.querySelector('form');
+    const author = form.querySelector('#author');
+    const title = form.querySelector('#title');
+        if (author.value && title.value) {
+          const bookTitle = title.value;
+          const bookAuthor = author.value;
+          const bookId = Date.now();
+          methods.addBook(bookTitle, bookAuthor, bookId);
+          displayBooks(methods);
+          saveData(methods);
+          alert(`${title.value} and ${author.value} have been added to the list!!!`);
+          title.value = null;
+          author.value = null;
+        } 
+ }
 const saveData = (methods) => {
     localStorage.setItem('myBooks', JSON.stringify(methods.books));
   };
-
-  const displayBooks = (methods) => {
+const displayBooks = (methods) => {
     const booksList = document.querySelector('.books');
     booksList.innerHTML = '';
     for (let i = 0; i < methods.books.length; i += 1) {
@@ -22,7 +38,7 @@ const saveData = (methods) => {
       removeBtn.textContent = 'Remove';
       removeBtn.addEventListener('click', () => {
         methods.removeBook(book.id);
-        displayBooks();
+        displayBooks(methods);
       });
   
       bookElement.appendChild(h2);
@@ -32,4 +48,4 @@ const saveData = (methods) => {
     }
     saveData(methods);
   };
-export {saveData,displayBooks}
+export {saveData,displayBooks,addBook}
