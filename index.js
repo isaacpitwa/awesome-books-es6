@@ -15,9 +15,9 @@ window.onload = listActive;
 // Date
 const setTime =()=>{
   const dateContainer = document.getElementById("date")
-  dateContainer.innerText = luxon.DateTime.now().toLocaleString(luxon.DateTime.DATETIME_FULL)
+  dateContainer.innerText = luxon.DateTime.now().toLocaleString(luxon.DateTime.DATETIME_FULL_WITH_SECONDS)
 }
-setInterval(setTime, 1000);
+setInterval(setTime, 60);
 
 /* form functions */
 
