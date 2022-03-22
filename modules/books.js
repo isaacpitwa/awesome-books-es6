@@ -48,4 +48,14 @@ const displayBooks = (methods) => {
     }
     saveData(methods);
   };
-export {saveData,displayBooks,addBook}
+
+  const getData = (methods) => {
+    const formData = JSON.parse(localStorage.getItem('myBooks'));
+    if (formData == null) {
+      methods.books = [];
+    } else {
+      methods.books = formData;
+    }
+  };
+
+export {saveData,displayBooks,addBook,getData}
