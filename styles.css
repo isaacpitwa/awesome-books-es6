@@ -143,3 +143,7 @@ footer span {
 .hidden {
   display: none;
 }
+#date{
+    text-align: right;
+    margin-top: 21px;
+}
