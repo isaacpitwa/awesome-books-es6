@@ -27,8 +27,15 @@ OR  using HTTPS
 move into project directory
 `cd awesome-books-es6`
 
+install http-server globally in case itsn't installed globally.
 
+`npm install http-server -g` 
 
+Open Awesome books in browser using NPM
+
+`npm start`
+
+open `http://127.0.0.1:8089`  in your  browser
 
 ## Authors
 
