@@ -27,6 +27,10 @@ OR  using HTTPS
 move into project directory
 `cd awesome-books-es6`
 
+Open Awesome books in browser
+
+`open ./index.html`
+
 
 
 
