@@ -31,8 +31,7 @@ Open Awesome books in browser using NPM
 
 `npm start`
 
-
-
+open `http://127.0.0.1:8089`  in your  browser
 
 ## Authors
 
